@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight dashboard</title>
+    <link rel="stylesheet" href="estilo8.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#cadfdf" fill-opacity="1"
+                    d="M0,128L30,138.7C60,149,120,171,180,197.3C240,224,300,256,360,234.7C420,213,480,139,540,96C600,53,660,43,720,64C780,85,840,139,900,154.7C960,171,1020,149,1080,165.3C1140,181,1200,235,1260,234.7C1320,235,1380,181,1410,154.7L1440,128L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z">
+                </path>
+            </svg>
+        </div>
+        <div class="menu-izquierda">
+            <div class=" card usuario">
+                <img src="fotousuario.png" alt="fotousuario">
+                <h1>ALEX JOHNSON</h1>
+                <p>alex.johnson@gmail.com</p>
+            </div>
+            <div class="card btn-menu">
+                <a href="">&#8962; DASHBOARD</a>
+                <a href="">&#9992; FLIGHTS</a>
+                <a href="">&#x1f45c; WALLET</a>
+                <a href="" class="activo">&#x1F4F0; REPORTS</a>
+                <a href="">&#128202; STATISTICS</a>
+                <a href="">&#9881; SETTINGS</a>
+            </div>
+            <div class=" card usuarios-activos">
+                <p>ACTIVE USERS</p>
+                <div class="variasfotos">
+                    <img src="usuario1.png" alt="usuario1">
+                    <img src="usuario2.png" alt="usuario2">
+                    <img src="usuario3.png" alt="usuario3">
+                    <img src="usuario4.png" alt="usuario4">
+                    <img src="+70.png" alt="+70">
+                </div>
+            </div>
+            <div class=" card imagen-final">
+                <img src="mapa.png" alt="mapa">
+            </div>
+        </div>
+        <div class="informacion-derecha">
+            <div class="arriba">
+                <div class="cardd card1">
+                    <div class="texto">
+                        <p>Boeing 787</p>
+                        <h2>$548</h2>
+                    </div>
+                    <div class="texto-imagen1">
+                        <img src="avion.png" alt="avion">
+                    </div>
+                </div>
+                <div class="cardd card2">
+                    <div class="texto">
+                        <p>Airbus 811</p>
+                        <h2>$620</h2>
+                    </div>
+                    <div class="texto-imagen1">
+                        <img src="avion.png" alt="avion">
+                    </div>
+                </div>
+                <div class="cardd card3">
+                    <div class="texto">
+                        <p>Total Flights</p>
+                        <h2>850</h2>
+                    </div>
+                    <div class="texto-imagen2">
+                        <img src="mapa.png" alt="mapa">
+                    </div>
+                </div>
+            </div>
+            <div class="medio">
+                <div class="enmedio">
+                    <div class="card4">
+                        <div class="titulo">
+                            <h3>Last Trips</h3>
+                            <p>Overview of latest month</p>
+                        </div>
+                        <div class="tabla">
+                            <div class="fila-encabezados">
+                                <p>Members</p>
+                                <p>Flight</p>
+                                <p>Total Members</p>
+                                <p>Ticket Price</p>
+                            </div>
+                            <div class="fila">
+                                <div class="miembro">
+                                    <img src="lastrip1.png" alt="lastrip1">
+                                    <div>
+                                        <p class="nombre"><b>John Doe</b></p>
+                                        <p class="correo">john@gmail.com</p>
+                                    </div>
+                                </div>
+                                <p>Qatar</p>
+                                <img src="5.png" alt="5" class="5">
+                                <p>$56k</p>
+                            </div>
+                            <div class="fila">
+                                <div class="miembro">
+                                    <img src="lastrip2.png" alt="lastrip2">
+                                    <div>
+                                        <p class="nombre"><b>Martin Loiness</b></p>
+                                        <p class="correo">martin@gmail.com</p>
+                                    </div>
+                                </div>
+                                <p>Emirates</p>
+                                <img src="3.png" alt="3">
+                                <p>$56k</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card5">
+                        <h3>Statistics</h3>
+                        <canvas id="chartStatistics"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="abajo">
+                <div class="bajo">
+                    <div class="card6">
+                        <h3>Flights Share</h3>
+                        <div class="pas">
+                            <canvas id="chartFlightsShare"></canvas>
+                        </div>
+                    </div>
+                    <div class="card7">
+                        <h3>Flights Schedule</h3>
+                        <canvas id="chartFlightsSchedule"></canvas>
+                    </div>
+                </div>
+            </div>
+    </main>
+    <script>
+        const ctx1 = document.getElementById('chartStatistics');
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Flights',
+                    data: [3, 4, 3, 5, 4.5, 5],
+                    backgroundColor: '#c89c32',
+                    borderRadius: 8
+                }, {
+                    label: 'Passengers',
+                    data: [3, 5, 4, 3, 5, 4],
+                    backgroundColor: '#425c5a',
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: { color: '#63736e' },
+                        grid: { color: '#e4f2f2' }
+                    }
+                }
+            }
+        });
+        const ctx2 = document.getElementById('chartFlightsShare');
+        new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: ['Qatar', 'Emirates', 'Delta', 'United'],
+                datasets: [{
+                    data: [35, 25, 20, 20],
+                    backgroundColor: ['#c89c32', '#425c5a', '#5f60b3', '#cadfdf'],
+                    borderWidth: 2,
+                    borderColor: '#ffffff'
+                }]
+            },
+            options: {
+                responsive: true,
+                cutout: '70%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#63736e',
+                            boxWidth: 12
+                        }
+                    }
+                }
+            }
+        });
+        const ctx3 = document.getElementById('chartFlightsSchedule');
+        const gradient1 = ctx3.getContext('2d').createLinearGradient(0, 0, 0, 200);
+        gradient1.addColorStop(0, 'rgba(200,156,50,0.6)');
+        gradient1.addColorStop(1, 'rgba(200,156,50,0.0)');
+        const gradient2 = ctx3.getContext('2d').createLinearGradient(0, 0, 0, 200);
+        gradient2.addColorStop(0, 'rgba(66,92,90,0.6)');
+        gradient2.addColorStop(1, 'rgba(66,92,90,0.0)');
+        new Chart(ctx3, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [
+                    {
+                        label: 'Passengers',
+                        data: [3, 2, 4, 2.5, 5, 4.5],
+                        borderColor: '#c89c32',
+                        backgroundColor: gradient1,
+                        tension: 0.4,
+                        fill: true,
+                        pointBackgroundColor: '#c89c32',
+                        pointRadius: 4
+                    },
+                    {
+                        label: 'Flights',
+                        data: [3, 4, 3, 5, 4.5, 5],
+                        borderColor: '#425c5a',
+                        backgroundColor: gradient2,
+                        tension: 0.4,
+                        fill: true,
+                        pointBackgroundColor: '#425c5a',
+                        pointRadius: 4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#63736e',
+                            boxWidth: 12
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: '#63736e' },
+                        grid: { display: false }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: { color: '#63736e' },
+                        grid: { color: '#e4f2f2' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

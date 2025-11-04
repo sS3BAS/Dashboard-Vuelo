@@ -1,0 +1,252 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    background-color: #e4f2f2;
+}
+main{
+    display: flex;
+    height: 100vh;
+    padding: 5px;
+}
+.wave{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+.menu-izquierda{
+    color: white;
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card{
+    width: 270px;
+}
+.usuario{
+    text-align: center;
+    background-color: #3c5654;
+    border-radius: 20px 30px 0px 0px;
+    padding: 50px 30px;
+}
+.usuario img{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 5px solid rgb(188, 188, 3);
+}
+.usuario h1{
+    font-size: 20px;
+}
+.usuario p{
+    font-size: 15px;
+}
+.btn-menu{
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+    padding: 20px 0px 20px 5px;
+    background-color: #425c5a;
+    gap: 15px;
+}
+.btn-menu a{
+    text-decoration: none;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 20px 0px 0px 20px;
+    transition: background-color 0.3s ease;
+}
+.btn-menu a.activo{
+    background-color: #e4f2f2;
+    color:#4d615d;
+}
+.usuarios-activos{
+    font-size: 15px;
+    color: rgb(188, 188, 3);
+    background-color: #425c5a;
+    padding: 5px 20px;
+}
+.variasfotos{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+.variasfotos img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 5px solid #3c5654;
+}
+.imagen-final{
+    background-color: #425c5a;
+    border-radius: 0px 0px 30px 20px;
+}
+.imagen-final img{
+    width: 250px;
+    height: 100px;
+}
+.informacion-derecha{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 0px 30px;
+}
+.arriba{
+    display: flex;
+    gap: 20px;
+}
+.cardd{
+    color:white;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 20px;
+    width: 390px;
+    height: 140px;
+    position: relative;
+}
+.card1{
+    background-color: #c89c32;
+    justify-content: space-between;
+}
+.card1 .card2 .card3 h2{
+    font-size: 26px;
+}
+.card1 .card2 .card3 p{
+    font-size: 18px;
+}
+.texto-imagen1{
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+}
+.texto-imagen1 img{
+    width: 200px;
+    height: 90px;
+    object-fit: cover;
+}
+.card2{
+    background-color: #425c5a;
+}
+.card3{
+    background-color: #425c5a;
+}
+.texto-imagen2 img{
+    width: 200px;
+    height: 90px;
+    object-fit: cover;
+}
+.enmedio{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    background-color: white;
+    color:#63736e;
+    border-radius: 20px;
+    padding: 20px;
+    width: 800px;
+    height: 280px;
+    justify-content: space-between;
+}
+.medio{
+    width: 700px;
+}
+.card4{
+    width: 750px;
+}
+.card4 .titulo h3{
+    font-size: 18px;
+}
+.card4 .titulo p{
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+.tabla{
+    display: flex;
+    flex-direction: column;
+    gap:12px;
+}
+.fila{
+    display: grid;
+    grid-template-columns: 2fr 3fr 3fr 1fr;
+    align-items: center;
+    padding: 10px 0px;
+    justify-content: space-between;
+    border-top: 2px dashed #e4f2f2; 
+}
+.fila p{
+    padding: 0px 25px;
+}
+.fila-encabezados{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.miembro{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.miembro img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.fila img{
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+}
+.card5{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 2px;
+    right: -410px;
+    background-color: white;
+    border-radius: 20px;
+    width: 380px;
+    height: 280px;
+    padding: 15px;
+}
+.bajo{
+    display: flex;
+    justify-content: space-between;
+}
+.card6{
+    background-color: white;
+    border-radius: 20px;
+    width: 400px;
+    height: 250px;
+    padding: 10px 35px;
+    align-content: center;
+}
+.pas{
+    padding: 0px 60px;
+}
+.card7{
+    background-color: white;
+    border-radius: 20px;
+    width: 750px;
+    height: 250px;
+    padding: 10px 35px;
+}
+.card5 canvas, .card6 canvas, .card7 canvas{
+    width: 100% !important;
+    height: 200px !important;
+    padding: 10px;
+}
+.card5 h3, .card6 h3, .card7 h3{
+    color:#425c59;
+    font-size: 16px;
+}
